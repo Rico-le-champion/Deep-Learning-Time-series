@@ -18,6 +18,7 @@ Prophet is pretty easy and straight forward to use in Python. The API allows us 
 But the problem is that in order to get this kind of information you need to know your series in depth, and you have to have data that are spread among days, weeks or years, which is not our case. We have also tried to detrend and deseasonalized our times series, but it has been again useless once again giving us the same results as before.
 In conclusion prophet is a very easy  and efficient (both in time and in result) algorithm to use but it can if you want to take time to adjust precisely all the parameters in order to have better results be very complex in its understanding of the times series.
 Here are the results we got for Prophet
+[index.png]https://github.com/Rico-le-champion/Deep-Learning-Time-series/blob/main/index.png
 
 ## 3.	DEEP AR
 The DeepAR algorithm was developed by Amazon to meet their need for predicting sales of all products by driving a single model. Indeed, products have different dynamics, but the experience gained by products with a long history can benefit the prediction of sales of more recent products. It is this "turnkey" ability to train a single model on a set of time series that can learn from each other that is the great specificity of DeepAR, with the fact that the algorithm is based on deep learning.
