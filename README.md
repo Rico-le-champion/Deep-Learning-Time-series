@@ -17,13 +17,16 @@ Prophet is a tool developed by Facebook in order to give access to times series 
 Prophet is pretty easy and straight forward to use in Python. The API allows us in 4 line to compute forecast for our times series. Everything seems automatic and there are not a lot of  parameter to play with if you do not know precise information about your data ( which is our case). However, if you know a few things about your Times series you can choose precisely details with parameter such as the kind of  seasonality( daily, yearly, weekly) or take into account  holidays and so on which is great. This is great to start an iterative process where at each iteration you are able to improve your choice of parameter. So, with a much deeper reflection and using these parameter we could have got better results.
 But the problem is that in order to get this kind of information you need to know your series in depth, and you have to have data that are spread among days, weeks or years, which is not our case. We have also tried to detrend and deseasonalized our times series, but it has been again useless once again giving us the same results as before.
 In conclusion prophet is a very easy  and efficient (both in time and in result) algorithm to use but it can if you want to take time to adjust precisely all the parameters in order to have better results be very complex in its understanding of the times series.
-Here are the results we got for Prophet
+
+Here are the results we got for Prophet for the last series for example with a sMAPE of 3.7
 ![index.png](./index.png)
 
 ## 3.	DEEP AR
 The DeepAR algorithm was developed by Amazon to meet their need for predicting sales of all products by driving a single model. Indeed, products have different dynamics, but the experience gained by products with a long history can benefit the prediction of sales of more recent products. It is this "turnkey" ability to train a single model on a set of time series that can learn from each other that is the great specificity of DeepAR, with the fact that the algorithm is based on deep learning.
 The installation of DeepAR is very simple. The DeepAR model is based on a recurrent neural network over which is added a learning layer of a probability distribution. The model calculates each prediction according to the previous values, which may themselves be predictions. It thus learns, as it goes along, the best parameters for generating the parameters of the probability distribution from the output of the RNN, noted h on the graph below:
- 
+![schéma-modèle-DeepAR-1024x627.png](./schéma-modèle-DeepAR-1024x627.png)
+
+
 DeepAR's API is slightly more complex than Prophet's but is still very easily affordable. Data instantiation is done with the ListDataset object and then the estimator is simply trained with the train function.
 Note that the trainer parameter of the DeepAREstimator object allows to configure the RNN of the model very precisely.
 The prediction is done via the make_evaluation_prediction function provided by the package, which takes as argument num_eval_samples which corresponds to the number of simulations that the model will calculate to sample the probability distributions.
