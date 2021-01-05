@@ -31,6 +31,7 @@ Here are the results we got for Prophet for the last serie for example with a sM
 ## 3.	DEEP AR
 The DeepAR algorithm was developed by Amazon to meet their need for predicting sales of all products by driving a single model. Indeed, products have different dynamics, but the experience gained by products with a long history can benefit the prediction of sales of more recent products. It is this "turnkey" ability to train a single model on a set of time series that can learn from each other that is the great specificity of DeepAR, with the fact that the algorithm is based on deep learning.
 The installation of DeepAR is very simple. The DeepAR model is based on a recurrent neural network over which is added a learning layer of a probability distribution. The model calculates each prediction according to the previous values, which may themselves be predictions. It thus learns, as it goes along, the best parameters for generating the parameters of the probability distribution from the output of the RNN, noted h on the graph below:
+
 ![schéma-modèle-DeepAR-1024x627.png](./schéma-modèle-DeepAR-1024x627.png)
 
 
