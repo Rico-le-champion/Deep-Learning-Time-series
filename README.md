@@ -54,7 +54,7 @@ The efforts made by web giants to democratize the analysis of time series have b
 Here is a quick resume of the comparison between Prophet and Deep AR to help you decide which one is better to use according to your usage. 
 ![135574893_518933055689697_8724537108818437982_n.png](./135574893_518933055689697_8724537108818437982_n.png)
 
-Here is a quick summary of our main results. (Take into account that our result with Deep AR are considered weird but are expected to be around the results of Prophet.)
+Here is a quick summary of our main results. (Take into account that our result with Deep AR are considered weird but is expected to be around the results of Prophet.)
 
 | Algorithms | sMAPE | 
 | :--------: | :---: | 
