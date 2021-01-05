@@ -26,7 +26,7 @@ But the problem is that in order to get this kind of information you need to kno
 In conclusion prophet is a very easy  and efficient (both in time and in result) algorithm to use but it can if you want to take time to adjust precisely all the parameters in order to have better results be very complex in its understanding of the times series. The average sMAPE over the 414 times series is 29.39 wich 2.1 times the sMAPE of Naive Baiyes 2 in the Benchmark. It is seems not bad and can probably be improved on the other dataset where the yearly, daly and monthly seasonality can be used.
 
 Here are the results we got for Prophet for the last serie for example with a sMAPE of 3.7
-![index.png](./index.png) 
+![index3.png](./index3.png) 
 
 ## 3.	DEEP AR
 The DeepAR algorithm was developed by Amazon to meet their need for predicting sales of all products by driving a single model. Indeed, products have different dynamics, but the experience gained by products with a long history can benefit the prediction of sales of more recent products. It is this "turnkey" ability to train a single model on a set of time series that can learn from each other that is the great specificity of DeepAR, with the fact that the algorithm is based on deep learning.
