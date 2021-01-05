@@ -1,7 +1,9 @@
 # Deep-Learning-Time-series
 
 ## Introduction
-To illustrate the performance of Prophet and DeepAR, we have chosen an open-source dataset from the Kaggle "M4 Forecasting" competition. It contains a lot of different dataset, but we’ve chosen to focus only on hourly data to make it easier and to have shorter computation time. This dataset contains 414 time series (observed every hour). 
+A time series is time-indexed data. Time series are now everywhere and companies are often required to process them. For example, the analysis of time series will be useful to the company to forecast sales, product inventory or production to ensure that it meets its objectives.
+Despite this need, companies often lack the resources to be able to process all the usable time series data they have at their disposal at scale. However, this situation is now changing thanks to new open source tools that allow them to obtain good results without having to be an expert in the mathematical concepts on which the "classic" algorithms are based.
+Because of their maturity and their feedback, we have selected two main tools: Prophet and DeepAR that we detail below. To illustrate the performance of Prophet and DeepAR, we have chosen an open-source dataset from the Kaggle "M4 Forecasting" competition. It contains a lot of different dataset, but we’ve chosen to focus only on hourly data to make it easier and to have shorter computation time. This dataset contains 414 time series (observed every hour). 
 We compared 3 different algorithms: DeepAR, Prophet and SARIMA, a more classical statistical model. These three models were trained with time series observed over 960 hours. There performances were measured over 48 hours of prediction by the symmetric mean absolute percentage error (sMAPE). Until recently the statistical models were known to be unbeatable by any Machine Learning algorithms to create forecast of times series. However, with the rise of Nbeats, prophet and DEEP AR this time seems to be over
 
 ## 1.	SARIMA
@@ -45,3 +47,9 @@ DeepAR trains a single model on a set of time series it takes as input a matrix 
 
 ## Conclusion
 The efforts made by web giants to democratize the analysis of time series have been successful. Thanks to them a whole bunch of data scientists who do not necessarily have the mathematical expertise necessary to use models like SARIMA are able to forecast quickly and easily very good results. Here we do not say that that the SARIMA model is old and useless. We are concluding from this study that this model requires a lot of time and expertise to reach results that are possibly better but can also be worse than the two others. However, if you decide to use Prophet or DeepAR which are  easier and more intellectually accessible algorithms you are quite sure of the quality of your results, you know that you are going to be time efficient and if you have knowledge and time you can also spent an entire night tuning their parameters. :P 
+
+| Algorithms | sMAPE | 
+| :--------: | :---: | 
+| SARIMA     | 301 |
+| Prophet    | 29.39 |
+| DeepAR     | 0.58 |
