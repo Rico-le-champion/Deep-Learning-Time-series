@@ -8,11 +8,11 @@ We compared 3 different algorithms: DeepAR, Prophet and SARIMA, a more classical
 
 ## 1.	SARIMA
 SARIMA is a very well-known statistical model very efficient to model time Series. It has 3 parameters that need to be fitted to each of the times series. The first one corresponds to the number of times the series needs to be differentiated to be stationary. The two other one corresponds to what kind of Autoregressive and Moving average processes it is. Once these parameters are fixed you can predict the model. And in theory it is efficient.
-As you will see in the notebook it is not very efficient when we use it. Indeed, it takes a huge amount of time to find the right parameter for each time series. Moreover, the results are not extraordinary compared to the two other algorithms.  In R I think that it would have been way faster, and the results would be better because there are functions such as auto. arima that way more efficient than a simple for loop to find the best set of parameters. In conclusion , we can say that we have disappointing results on this set( however the overall results given by the baseline were not that bad: 12.669 with the sMAPE on the overall dataset) and a long time of computation probably due to the usage of python.
+As you will see in the notebook it is not very efficient when we use it. Indeed, it takes a huge amount of time to find the right parameter for each time series. Moreover, the results are not extraordinary compared to the two one given by the benchmark for SARIMA in the M competition.  In R I think that it would have been way faster, and the results would be better because there are functions such as auto. arima that way more efficient than a simple for loop to find the best set of parameters. In conclusion , we can say that we have disappointing results on this set( however the overall results given by the baseline were not that bad: 12.669 with the sMAPE on the overall dataset) and a long time of computation probably due to the usage of python.
 We tried to detrend and deseasonalized the series before submitting them to the SARIMA process but as expected it has been inefficient. So, using R we could have got better results because the optimization process would have been better.
 Here are the results of the SARIMA model:
 
-sMAPE:
+sMAPE: 24.22 in average which 1.72 times bigger than the Naive Bayes 2 model
 
 ## 2.	Prophet
 Prophet is a tool developed by Facebook in order to give access to times series forecasting to a large amount of people. It is an additive model where non-linear trends are fit with yearly, weekly, and daily seasonality and can also consider the seasonality. It is said to work best with time series that have strong seasonal effects and several seasons of historical data which is not exactly the case for our hourly data. This model is particularly suitable for business-type time series affected by events or seasonalities linked to human activity (e.g.: end of the year vacations, sales, seasons, vacations, etc). Prophet's API allows the analyst to get good results quickly with the default values and then enrich the model iteratively with business knowledge, via:
@@ -27,7 +27,7 @@ Prophet is pretty easy and straight forward to use in Python. The API allows us 
 But the problem is that in order to get this kind of information you need to know your series in depth, and you have to have data that are spread among days, weeks or years, which is not our case. We have also tried to detrend and deseasonalized our times series, but it has been again useless once again giving us the same results as before.
 In conclusion prophet is a very easy  and efficient (both in time and in result) algorithm to use but it can if you want to take time to adjust precisely all the parameters in order to have better results be very complex in its understanding of the times series. The average sMAPE over the 414 times series is 29.39 wich 2.1 times the sMAPE of Naive Baiyes 2 in the Benchmark. It is seems not bad and can probably be improved on the other dataset where the yearly, daly and monthly seasonality can be used.
 
-Here are the results we got for Prophet for the last serie for example with a sMAPE of 3.7
+Here are the results we got for Prophet for the last serie for example with a sMAPE of 61.75
 ![index3.png](./index3.png) 
 
 ## 3.	DEEP AR
@@ -46,7 +46,7 @@ The prediction is done via the make_evaluation_prediction function provided by t
 DeepAR trains a single model on a set of time series it takes as input a matrix containing all the time series, in our case the series do not have the same sizes (contrary to the use of prophet where we remove the NANs here we replace them with 0) this explains the very low sMAPE values obtained in the notebook (this metric is therefore not comparable to the sMAPE calculated for prophet).
 
 ## Conclusion
-The efforts made by web giants to democratize the analysis of time series have been successful. Thanks to them a whole bunch of data scientists who do not necessarily have the mathematical expertise necessary to use models like SARIMA are able to forecast quickly and easily very good results. Here we do not say that that the SARIMA model is old and useless. We are concluding from this study that this model requires a lot of time and expertise to reach results that are possibly better but can also be worse than the two others. However, if you decide to use Prophet or DeepAR which are  easier and more intellectually accessible algorithms you are quite sure of the quality of your results, you know that you are going to be time efficient and if you have knowledge and time you can also spent an entire night tuning their parameters. :P 
+The efforts made by web giants to democratize the analysis of time series have been successful. Thanks to them a whole bunch of data scientists who do not necessarily have the mathematical expertise necessary to use models like SARIMA are able to forecast quickly and easily very good results. Here we do not say that that the SARIMA model is old and useless. We are concluding from this study that this model requires a lot of time and expertise to reach results that are possibly better (not by far) but can also be worse than the two others. However, if you decide to use Prophet or DeepAR which are  easier and more intellectually accessible algorithms you are quite sure of the quality of your results, you know that you are going to be time efficient and if you have knowledge and time you can also spent an entire night tuning their parameters. :P 
 
 Here is a quick resume of the comparison between Prophet and Deep AR.
 ![135574893_518933055689697_8724537108818437982_n.png](./135574893_518933055689697_8724537108818437982_n.png)
@@ -55,6 +55,6 @@ Here is a quick summary of our main results. (Take into account that our result 
 
 | Algorithms | sMAPE | 
 | :--------: | :---: | 
-| SARIMA     | 301 |
+| SARIMA     | 24.22 |
 | Prophet    | 29.39 |
-| DeepAR     | 0.58 |
+| DeepAR     | 0.58  |
