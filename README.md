@@ -8,17 +8,17 @@ We compared 3 different algorithms: DeepAR, Prophet and SARIMA, a more classical
 SARIMA is a very well-known statistical model very efficient to model time Series. It has 3 parameters that need to be fitted to each of the times series. The first one corresponds to the number of times the series needs to be differentiated to be stationary. The two other one corresponds to what kind of Autoregressive and Moving average processes it is. Once these parameters are fixed you can predict the model. And in theory it is efficient.
 As you will see in the notebook it is not very efficient when we use it. Indeed, it takes a huge amount of time to find the right parameter for each time series. Moreover, the results are not extraordinary compared to the two other algorithms.  In R I think that it would have been way faster, and the results would be better because there are functions such as auto. arima that way more efficient than a simple for loop to find the best set of parameters. In conclusion , we can say that we have disappointing results on this set( however the overall results given by the baseline were not that bad: 12.669 with the sMAPE on the overall dataset) and a long time of computation probably due to the usage of python.
 We tried to detrend and deseasonalized the series before submitting them to the SARIMA process but as expected it has been inefficient. So, using R we could have got better results because the optimization process would have been better.
-Here are the results of the SARIMA model:\n
+Here are the results of the SARIMA model:
+
 sMAPE:
 
 ## 2.	Prophet
 Prophet is a tool developed by Facebook in order to give access to times series forecasting to a large amount of people. It is an additive model where non-linear trends are fit with yearly, weekly, and daily seasonality and can also consider the seasonality. It is said to work best with time series that have strong seasonal effects and several seasons of historical data which is not exactly the case for our hourly data. This model is particularly suitable for business-type time series affected by events or seasonalities linked to human activity (e.g.: end of the year vacations, sales, seasons, vacations, etc). Prophet's API allows the analyst to get good results quickly with the default values and then enrich the model iteratively with business knowledge, via:
-       -The type of trend .
 
+
+       -The type of trend
        -The addition of information on seasonality, for example the explicit implementation of a different seasonality during a sports season.
-
        -Explicit listing of events and/or vacations that may impact the predicted value.
-
        -The parameterization of the model's regularization.
 
 Prophet is pretty easy and straight forward to use in Python. The API allows us in 4 line to compute forecast for our times series. Everything seems automatic and there are not a lot of  parameter to play with if you do not know precise information about your data ( which is our case). However, if you know a few things about your Times series you can choose precisely details with parameter such as the kind of  seasonality( daily, yearly, weekly) or take into account  holidays and so on which is great. This is great to start an iterative process where at each iteration you are able to improve your choice of parameter. So, with a much deeper reflection and using these parameter we could have got better results.
@@ -38,6 +38,7 @@ DeepAR's API is slightly more complex than Prophet's but is still very easily af
 Note that the trainer parameter of the DeepAREstimator object allows to configure the RNN of the model very precisely.
 The prediction is done via the make_evaluation_prediction function provided by the package, which takes as argument num_eval_samples which corresponds to the number of simulations that the model will calculate to sample the probability distributions.
 ![index2.png](./index2.png)
+
 
 DeepAR trains a single model on a set of time series it takes as input a matrix containing all the time series, in our case the series do not have the same sizes (contrary to the use of prophet where we remove the NANs here we replace them with 0) this explains the very low sMAPE values obtained in the table above (this metric is therefore not comparable to the sMAPE calculated for prophet).
 
