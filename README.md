@@ -8,7 +8,7 @@ We compared 3 different algorithms: DeepAR, Prophet and SARIMA, a more classical
 SARIMA is a very well-known statistical model very efficient to model time Series. It has 3 parameters that need to be fitted to each of the times series. The first one corresponds to the number of times the series needs to be differentiated to be stationary. The two other one corresponds to what kind of Autoregressive and Moving average processes it is. Once these parameters are fixed you can predict the model. And in theory it is efficient.
 As you will see in the notebook it is not very efficient when we use it. Indeed, it takes a huge amount of time to find the right parameter for each time series. Moreover, the results are not extraordinary compared to the two other algorithms.  In R I think that it would have been way faster, and the results would be better because there are functions such as auto. arima that way more efficient than a simple for loop to find the best set of parameters. In conclusion , we can say that we have disappointing results on this set( however the overall results given by the baseline were not that bad: 12.669 with the sMAPE on the overall dataset) and a long time of computation probably due to the usage of python.
 We tried to detrend and deseasonalized the series before submitting them to the SARIMA process but as expected it has been inefficient. So, using R we could have got better results because the optimization process would have been better.
-Here are the results of the SARIMA model:
+Here are the results of the SARIMA model:\n
 sMAPE:
 
 ## 2.	Prophet
