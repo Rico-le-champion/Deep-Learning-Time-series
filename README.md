@@ -48,6 +48,11 @@ DeepAR trains a single model on a set of time series it takes as input a matrix 
 ## Conclusion
 The efforts made by web giants to democratize the analysis of time series have been successful. Thanks to them a whole bunch of data scientists who do not necessarily have the mathematical expertise necessary to use models like SARIMA are able to forecast quickly and easily very good results. Here we do not say that that the SARIMA model is old and useless. We are concluding from this study that this model requires a lot of time and expertise to reach results that are possibly better but can also be worse than the two others. However, if you decide to use Prophet or DeepAR which are  easier and more intellectually accessible algorithms you are quite sure of the quality of your results, you know that you are going to be time efficient and if you have knowledge and time you can also spent an entire night tuning their parameters. :P 
 
+Here is a quick resume of the comparison between Prophet and Deep AR.
+![135574893_518933055689697_8724537108818437982_n.png](./135574893_518933055689697_8724537108818437982_n.png)
+
+Here is a quick summary of our main results. (Take into account that our result with Deep AR are considered weird.)
+
 | Algorithms | sMAPE | 
 | :--------: | :---: | 
 | SARIMA     | 301 |
